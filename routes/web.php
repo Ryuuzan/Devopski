@@ -18,3 +18,5 @@ Route::get('/', 'PagesController@home');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/products', 'PagesController@produits');
 Route::get('/products/ficheproduits', 'PagesController@ficheproduits');
+Route::get('/authentification', 'PagesController@authentification');
+Route::post('/authentification', 'PagesController@authentification');

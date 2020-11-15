@@ -42,4 +42,9 @@ class PagesController extends Controller
         return redirect('/products');
         
     }
+
+    public function authentification()
+    {
+        return view('authentification');
+    }
 }
