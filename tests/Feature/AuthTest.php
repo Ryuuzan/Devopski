@@ -8,11 +8,11 @@ use Tests\TestCase;
 class AuthTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Test Authentification Page.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testLoginPageResponse()
     {
         $response = $this->get('/authentification');
 
