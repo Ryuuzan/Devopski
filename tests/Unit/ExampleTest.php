@@ -15,4 +15,15 @@ class ExampleTest extends TestCase
     {
         $this->assertTrue(true);
     }
+ 
+    /**
+     * Test Login Page
+     *
+     * @return void
+     */
+    public function testLoginPageResponse()
+    {    
+	$this->request('GET', '/authentification');
+	$this->assertResponseCode(200);
+    }
 }
