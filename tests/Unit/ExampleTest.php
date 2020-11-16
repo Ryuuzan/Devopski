@@ -17,11 +17,11 @@ class ExampleTest extends TestCase
     }
  
     /**
-     * A basic test example.
+     * test Authentification Page Response.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testAuthentificationPageResponse()
     {
         $response = $this->get('/authentification');
 
