@@ -16,16 +16,5 @@ class ExampleTest extends TestCase
     {
         $this->assertTrue(true);
     }
- 
-    /**
-     * test Authentification Page Response.
-     *
-     * @return void
-     */
-    public function testAuthentificationPageResponse()
-    {
-        $response = $this->get('/authentification');
 
-        $response->assertStatus(200);
-    }
 }
