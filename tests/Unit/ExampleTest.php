@@ -17,13 +17,14 @@ class ExampleTest extends TestCase
     }
  
     /**
-     * Test Login Page
+     * A basic test example.
      *
      * @return void
      */
-    public function testLoginPageResponse()
-    {    
-	$this->request('GET', '/authentification');
-	$this->assertResponseCode(200);
+    public function testBasicTest()
+    {
+        $response = $this->get('/authentification');
+
+        $response->assertStatus(200);
     }
 }
