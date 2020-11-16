@@ -14,9 +14,8 @@ class AuthTest extends TestCase
      */
     public function testLoginPageResponse()
     {
-        $response = $this->get('/authentification');
-
-        $response->assertStatus(200);
+	$this->request('GET', '/authentification');
+	$this->assertResponseCode(200);
     }
 
     /**
