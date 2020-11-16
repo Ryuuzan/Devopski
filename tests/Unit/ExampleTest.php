@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-Illuminate\Foundation\Testing\TestCase;
+use Illuminate\Foundation\Testing\TestCase;
 
 class ExampleTest extends TestCase
 {
