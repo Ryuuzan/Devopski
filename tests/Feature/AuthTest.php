@@ -4,24 +4,10 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Http\Request;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
-    /**
-     * Test Page Response.
-     *
-     * @return void
-     */
-    public function testPageResponse()
-    {
-      $response = $this->get('/');
-
-      $response->assertStatus(200);
-
-    }
-
     /**
      * Test Landing Page.
      *
