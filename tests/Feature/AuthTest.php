@@ -4,19 +4,18 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\TestCase;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
     /**
-     * Test Authentification Page.
+     * Test Page Response.
      *
      * @return void
      */
-    public function testAuthentificationPage()
+    public function testPageResponse()
     {
-      $response = $this->get('/authentification');
+      $response = $this->get('/');
 
       $response->assertStatus(200);
 
