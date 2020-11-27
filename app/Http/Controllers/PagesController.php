@@ -9,12 +9,8 @@ class PagesController extends Controller
 {
     public function home()
     {
-        $tasked = [
-            'Go to the store',
-            'Go to the Market',
-            'Go to work'
-        ];
-        return view('welcome', ['tasks' => $tasked ]);
+       
+        return view('welcome');
     }
 
     public function contact()
@@ -34,7 +30,7 @@ class PagesController extends Controller
             $produit = Produit::where(function($query){
                 $query->select('*')
                     ->from('produits')
-                    ->where('id',strval($_GET['id']));
+                    ->where('id_prod',strval($_GET['id']));
             })->get();
             
             return view('ficheproduits',['produit'=> $produit[0]]);
@@ -46,5 +42,18 @@ class PagesController extends Controller
     public function authentification()
     {
         return view('authentification');
+    }
+    public function profil()
+    {
+        if(isset($_POST['pseudo'])&&isset($_POST['mdp'])){
+            $user= User::where(function($query){
+                $query->select('*')
+                ->from('users')
+                ->where('name',$_POST['pseudo'])
+                ->and('password',$_POST['mdp']);
+            })->get();
+        return view('profil',['user'=> $user[0]]);
+        }
+        return redirect('/authentification');
     }
 }
