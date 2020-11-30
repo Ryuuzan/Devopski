@@ -31,11 +31,11 @@ class NewdbTest extends TestCase
      */
     public function testLogin()
     {
-        $user = \App\Models\User::factory(User::class)->create();
+        $user = \App\Models\User::factory(User::class)->create(['password' => ($password = 'password'),]);
         
         $this->visit('/authentification')
             ->type($user->email, 'email')
-            ->type($user->password, 'password')
+            ->type(, 'password')
             ->press('submit')
             ->seePageIs('/Welcome');
     }
@@ -47,8 +47,7 @@ class NewdbTest extends TestCase
      */
     public function test_user_can_login_with_correct_credentials()
     {
-        $user = \App\Models\User::factory(User::class)->create();
-
+        $user = \App\Models\User::factory(User::class)->create(['password' => ($password = 'password'),]);
         $response = $this->post('/authentification', [
             'email' => $user->email,
             'password' => $user->password,
