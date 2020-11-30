@@ -84,8 +84,8 @@ class NewdbTest extends TestCase
     {
         $user = \App\Models\User::factory(User::class)->make();
 
-        $response = $this->actingAs($user)->get('/authentification');
-
+        $response = $this->actingAs($user)
+        $response->$this->get('/authentification');
         $response->assertRedirect('/Welcome');
     }
 
