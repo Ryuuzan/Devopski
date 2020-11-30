@@ -6,10 +6,10 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Hash;
 
-use Tests\UserTest;
+use Tests\UserCase;
 
 
-class DevopskidbTest extends UserTest
+class DevopskidbTest extends UserCase
 {
     use DatabaseMigrations;
     /**
