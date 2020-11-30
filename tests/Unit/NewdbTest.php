@@ -31,11 +31,11 @@ class NewdbTest extends TestCase
      */
     public function testLogin()
     {
-        $user = \App\Models\User::factory(User::class)->create(['password' => bcrypt($password = 'bonjour'),]);
+        $user = \App\Models\User::factory(User::class)->create();
         
         $this->visit('/authentification')
             ->type($user->email, 'email')
-            ->type($password, 'password')
+            ->type($user->password, 'password')
             ->press('submit')
             ->seePageIs('/Welcome');
     }
@@ -47,11 +47,11 @@ class NewdbTest extends TestCase
      */
     public function test_user_can_login_with_correct_credentials()
     {
-        $user = \App\Models\User::factory(User::class)->create(['password' => bcrypt($password = 'i-love-laravel'),]);
+        $user = \App\Models\User::factory(User::class)->create();
 
         $response = $this->post('/authentification', [
             'email' => $user->email,
-            'password' => $password,
+            'password' => $user->password,
         ]);
 
         $response->assertRedirect('/Welcome');
