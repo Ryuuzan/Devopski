@@ -56,7 +56,7 @@ class ExampleTest extends TestCase
             ->type($user->email, 'email')
             ->type('passw0RD', 'password')
             ->press('submit')
-            ->seePageIs('/Welcome')
+            ->seePageIs('/Welcome');
     }
 
 }
