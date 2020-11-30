@@ -7,11 +7,13 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
 class ExampleTest extends TestCase
 {
 
     use DatabaseMigrations;
-    use HasFactory;
 
     /**
      * A basic test example.
@@ -25,8 +27,14 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
     }
 
+}
+
+class User extends Model
+{
+    use HasFactory;
+
     /**
-     * Test Login Page
+     * Test UserLogin
      *
      * @return void
      */
