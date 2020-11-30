@@ -34,7 +34,7 @@ class NewdbTest extends TestCase
      */
     public function testLandingPageWithUserLogged()
     {
-        $user = factory(App\User::class)->create();
+        $user = \App\Models\User::factory(User::class)->create();
 
         $this->actingAs($user)
             ->visit('/')
@@ -50,7 +50,7 @@ class NewdbTest extends TestCase
      */
     public function testLogin()
     {
-        $user = factory(App\User::class)->create(['password' => Hash::make('passw0RD')]);
+        $user = \App\Models\User::factory(User::class)->create(['password' => Hash::make('passw0RD')]);
         
         $this->visit('/authentification')
             ->type($user->email, 'email')
@@ -66,7 +66,7 @@ class NewdbTest extends TestCase
      */
     public function test_user_can_login_with_correct_credentials()
     {
-        $user = factory(App\User::class)->create(['password' => Hash::make('passw0RD')]);
+        $user = \App\Models\User::factory(User::class)->create(['password' => Hash::make('passw0RD')]);
 
         $response = $this->post('/authentification', [
             'email' => $user->email,
@@ -84,7 +84,7 @@ class NewdbTest extends TestCase
      */
     public function test_user_cannot_view_a_login_form_when_authenticated()
     {
-        $user = factory(User::class)->make();
+        $user = \App\Models\User::factory(User::class)->make();
 
         $response = $this->actingAs($user)->get('/authentification');
 
