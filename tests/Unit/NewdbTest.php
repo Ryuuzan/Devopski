@@ -9,6 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Hash;
 
 class NewdbTest extends TestCase
 {
@@ -31,11 +32,11 @@ class NewdbTest extends TestCase
      */
     public function testLogin()
     {
-        $user = \App\Models\User::factory(User::class)->create(['password' => ($password = 'password'),]);
+        $user = \App\Models\User::factory(User::class)->create(['password' => Hash::make('passw0RD')]);
         
         $this->visit('/authentification')
             ->type($user->email, 'email')
-            ->type('password', 'password')
+            ->type('passw0RD', 'password')
             ->press('submit')
             ->seePageIs('/Welcome');
     }
@@ -47,10 +48,10 @@ class NewdbTest extends TestCase
      */
     public function test_user_can_login_with_correct_credentials()
     {
-        $user = \App\Models\User::factory(User::class)->create(['password' => ($password = 'password'),]);
+        $user = \App\Models\User::factory(User::class)->create(['password' => Hash::make('passw0RL')]);
         $response = $this->post('/authentification', [
             'email' => $user->email,
-            'password' => $user->password,
+            'password' => 'password',
         ]);
 
         $response->assertRedirect('/Welcome');
