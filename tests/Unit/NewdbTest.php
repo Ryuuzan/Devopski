@@ -75,19 +75,4 @@ class NewdbTest extends TestCase
         $this->assertAuthenticatedAs($user);
     }
 
-    /**
-     * Test User Cannot View Login Form When Authenticated
-     *
-     * @return void
-     */
-    public function test_user_cannot_view_a_login_form_when_authenticated()
-    {
-        $user = \App\Models\User::factory(User::class)->make();
-
-        $response = $this->actingAs($user)
-                         ->get('/authentification');
-
-        $response->assertRedirect('/Welcome');
-    }
-
 }
