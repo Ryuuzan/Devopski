@@ -36,7 +36,7 @@ class ExampleTest extends TestCase
      */
     public function testLandingPageWithUserLogged()
     {
-        $user = factory(App\User::class)->create();
+        $user = factory(App\Models\User::class)->create();
 
         $this->actingAs($user)
             ->visit('/')
@@ -52,7 +52,7 @@ class ExampleTest extends TestCase
      */
     public function testLogin()
     {
-        $user = factory(App\User::class)->create(['password' => Hash::make('passw0RD')]);
+        $user = factory(App\Models\User::class)->create(['password' => Hash::make('passw0RD')]);
         
         $this->visit('/authentification')
             ->type($user->email, 'email')
