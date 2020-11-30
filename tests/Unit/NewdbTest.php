@@ -35,7 +35,7 @@ class NewdbTest extends TestCase
         
         $this->visit('/authentification')
             ->type($user->email, 'email')
-            ->type(, 'password')
+            ->type('password', 'password')
             ->press('submit')
             ->seePageIs('/Welcome');
     }
