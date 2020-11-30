@@ -8,8 +8,6 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Hash;
 
-use Tests\UserCase;
-
 
 class DevopskidbTest extends UserCase
 {
