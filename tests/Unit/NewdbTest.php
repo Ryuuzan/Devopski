@@ -39,7 +39,6 @@ class NewdbTest extends TestCase
             ->see('contactez nous')
             ->see('produits')
             ->see('index')
-            ->see($user->name);
     }
     /**
      * Test Login
