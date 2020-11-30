@@ -12,7 +12,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Hash;
 
 
-class ExampleTest extends TestCase
+class NewdbTest extends TestCase
 {
     /**
      * A basic test example.
