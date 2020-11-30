@@ -5,7 +5,7 @@ namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
-use Illuminate\Foundation\Testing\ResfreshDatabase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
