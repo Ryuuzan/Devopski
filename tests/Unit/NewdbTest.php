@@ -29,21 +29,6 @@ class NewdbTest extends TestCase
      *
      * @return void
      */
-    public function testLandingPageWithUserLogged()
-    {
-        $user = \App\Models\User::factory(User::class)->create();
-
-        $this->actingAs($user)
-         $this->visit('/Welcome')
-             ->see('contactez nous')
-             ->see('produits')
-             ->see('index');
-    }
-    /**
-     * Test Login
-     *
-     * @return void
-     */
     public function testLogin()
     {
         $user = \App\Models\User::factory(User::class)->create(['password' => Hash::make('passw0RD')]);
