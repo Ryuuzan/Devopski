@@ -11,6 +11,7 @@ class ExampleTest extends TestCase
 {
 
     use DatabaseMigrations;
+    use HasFactory;
 
     /**
      * A basic test example.
