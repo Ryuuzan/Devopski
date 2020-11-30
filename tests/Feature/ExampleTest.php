@@ -66,4 +66,36 @@ class User extends Model
             ->seePageIs('/Welcome');
     }
 
+    /**
+     * TestUserCredentials
+     *
+     * @return void
+     */
+    public function test_user_can_login_with_correct_credentials()
+    {
+        $user = factory(App\User::class)->create(['password' => Hash::make('passw0RD')]);
+
+        $response = $this->post('/authentification', [
+            'email' => $user->email,
+            'password' => 'passw0RD',
+        ]);
+
+        $response->assertRedirect('/Welcome');
+        $this->assertAuthenticatedAs($user);
+    }
+
+    /**
+     * Test User Cannot View Login Form When Authenticated
+     *
+     * @return void
+     */
+    public function test_user_cannot_view_a_login_form_when_authenticated()
+    {
+        $user = factory(User::class)->make();
+
+        $response = $this->actingAs($user)->get('/authentification');
+
+        $response->assertRedirect('/Welcome');
+    }
+
 }
