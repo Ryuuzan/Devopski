@@ -1,7 +1,6 @@
 <?php
 
 namespace Tests\Unit;
-namespace app\Test\Facades;
 
 use PHPUnit\Framework\TestCase;
 
@@ -9,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Hash;
+use Hash::make;
 
 class NewdbTest extends TestCase
 {
