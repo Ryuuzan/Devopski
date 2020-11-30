@@ -1,7 +1,8 @@
 <?php
 
 namespace Tests\Feature;
-use PHPUnit\Framework\UserCase;
+
+use Tests\UserCase;
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;

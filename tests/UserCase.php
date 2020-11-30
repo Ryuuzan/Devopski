@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class UserCase extends Model
+abstract class UserCase extends Model
 {
+    use CreateApplication;
     use HasFactory;
+    public $baseUrl = 'http://localhost';
 
 }
