@@ -9,7 +9,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Support\Facades\Hash;
 
 class NewdbTest extends TestCase
 {
@@ -35,10 +34,10 @@ class NewdbTest extends TestCase
         $user = \App\Models\User::factory(User::class)->create();
 
         $this->actingAs($user)
-            ->visit('/')
-            ->see('contactez nous')
-            ->see('produits')
-            ->see('index');
+         $this->visit('/Welcome')
+             ->see('contactez nous')
+             ->see('produits')
+             ->see('index');
     }
     /**
      * Test Login
