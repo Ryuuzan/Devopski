@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 
 use Tests\TestCase;
 
-class UserTest extends Model
+class UserTest extends TestCase
 {
     use HasFactory;
     use DatabaseMigrations;    
