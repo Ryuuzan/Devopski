@@ -10,7 +10,6 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class NewdbTest extends TestCase
 {
@@ -25,7 +24,6 @@ class NewdbTest extends TestCase
     }
    
    use RefreshDatabase; 
-   use HasFactory;
    use DatabaseMigrations;
     /**
      * Test Login
