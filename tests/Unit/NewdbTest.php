@@ -24,6 +24,7 @@ class NewdbTest extends TestCase
    
    use RefreshDatabase; 
    use DatabaseMigrations;
+   use WithoutMiddleware;
     /**
      * Test Login
      *
