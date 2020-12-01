@@ -67,7 +67,7 @@ class ExampleTest extends TestCase
             'password' => 'passw0RL',
         ]);
 
-        $response->assertRedirect(route('/Welcome'));
+        $response->assertRedirect('/Welcome');
         $this->assertAuthenticatedAs($user);
     }
  }
