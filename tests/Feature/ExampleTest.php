@@ -42,6 +42,7 @@ class ExampleTest extends TestCase
      * Test Login                                      
      *                                                 
      * @return void                                    
+     */
     public function testLogin()
     {
 
@@ -54,20 +55,17 @@ class ExampleTest extends TestCase
              ->seePageIs('/Welcome');
     }
 
-   /**
-     * Test User Credentials
+    /**
+     * Test Welcome Page
      *
      * @return void
      */
-    public function test_user_can_login_with_correct_credentials()
+    public function testWelcomePageWithUserLogged()
     {
-        $user = \App\Models\User::factory(User::class)->create(['password' => Hash::make('passw0RL'),]);
-        $response = $this->post('/authentification', [
-            'email' => $user->email,
-            'password' => 'passw0RL',
-        ]);
+        $user = factory(App\User::class)->create();
 
-        $response->assertRedirect('/Welcome');
-        $this->assertAuthenticatedAs($user);
+        $this->actingAs($user)
+            ->visit('/')
+            ->see('page d\'accueil');
     }
  }
