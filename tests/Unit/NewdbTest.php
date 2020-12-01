@@ -36,8 +36,8 @@ class NewdbTest extends TestCase
         $user = \App\Models\User::factory(User::class)->create(['password' => Hash::make('passw0RD'),]);
         
         $this->visit('/authentification')
-             ->type($user->name, 'pseudo')
-             ->type('passw0RD', 'mdp')
+             ->type($user->email, 'email')
+             ->type('passw0RD', 'password')
              ->press('submit')
              ->seePageIs('/Welcome');
     }
@@ -51,8 +51,8 @@ class NewdbTest extends TestCase
     {
         $user = \App\Models\User::factory(User::class)->create(['password' => Hash::make('passw0RL'),]);
         $response = $this->post('/authentification', [
-            'pseudo' => $user->name,
-            'mdp' => 'passw0RL',
+            'email' => $user->email,
+            'password' => 'passw0RL',
         ]);
 
         $response->assertRedirect('/Welcome');
