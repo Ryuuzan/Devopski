@@ -55,8 +55,9 @@ class NewdbTest extends TestCase
             'mdp' => 'passw0RL',
         ]);
 
-        $response->assertRedirectedTo('/Welcome');
-        $this->assertAuthenticatedAs($user);
+        $response->assertRedirected('/Welcome');
+        $response->assertStatus(200);
+     
     }
 
 }
