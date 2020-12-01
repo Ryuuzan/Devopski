@@ -42,14 +42,12 @@ class NewdbTest extends TestCase
     }
 
    /**
-     * TestUserCredentials
+     * Test User Credentials
      *
      * @return void
      */
     public function test_user_can_login_with_correct_credentials()
     {
-        parent::test_user_can_login_with_correct_credentials();
-
         $user = \App\Models\User::factory(User::class)->create(['password' => Hash::make('passw0RL')]);
         $response = $this->post('/authentification', [
             'pseudo' => $user->name,
