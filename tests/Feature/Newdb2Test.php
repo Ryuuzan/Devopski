@@ -14,7 +14,7 @@ use App\User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
-class ExempleTest extends TestCase
+class Newdb2Test extends TestCase
 {
 
 use CreatesApplication;
