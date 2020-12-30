@@ -56,9 +56,9 @@ use WithoutMiddleware;
     
         $this->visit('/authentification')
              ->type($user->pseudo, 'pseudo')
-             ->type('passw0RD', 'mdp')
-             ->press('submit')
-             ->seePageIs('/authentification');
+             ->type('passw0RD', 'mdp');
+            # ->press('submit')
+            # ->seePageIs('/authentification');
     }
 
     /**
@@ -72,10 +72,6 @@ use WithoutMiddleware;
 
         $this->actingAs($user)
             ->visit('/')
-            ->click('contactez nous')
-            ->seePageIs('/contact')
-            ->click('Produits')
-            ->seePageIs('/products')
             ->click('Login')
             ->seePageIs('/authentification');
     }
