@@ -50,7 +50,26 @@ use CreatesApplication;
       'email' => 'armel@2020.fr',
       ]);
 
-  }  
+  }
+
+    /**
+     * Test Login
+     *
+     * @return void
+     */
+    public function testLandingPageWithUserLogged()
+    {
+        $user = \App\Models\User::factory(User::class)->create();
+
+        $this->actingAs($user)
+            ->visit('/')
+            ->click('contactez nous')
+            ->seePageIs('/contact')
+            ->click('Produits')
+            ->seePageIs('/products')
+            ->click('Login')
+            ->seePageIs('/authentification');
+    }  
 
 
 }
