@@ -6,38 +6,21 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\AssertTrait;
 use Illuminate\Support\Facades\Hash;
-
+use App\User;
 
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class Newdb1Test extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
-    {
-        $response = $this->get('/');
 
-        $response->assertStatus(200);
-         
-    }
-    /**                                                
-     * A basic test example.                           
-     *                                                 
-     * @return void                                    
-     */                                                
-    public function testSecondTest()                    
-    {                                                  
-        $this->assertTrue(true);                       
-    }                                                  
-                                                       
-   use RefreshDatabase;                                
-   use DatabaseMigrations;                             
-   use WithoutMiddleware;                              
+use RefreshDatabase;                                
+use DatabaseMigrations;                             
+use WithoutMiddleware;     
+
+
+                        
     /**                                                
      * Test Login                                      
      *                                                 
@@ -47,25 +30,32 @@ class ExampleTest extends TestCase
     {
 
         $user = \App\Models\User::factory(User::class)->create(['password' => Hash::make('passw0RD'),]);
-
+    
         $this->visit('/authentification')
-             ->type($user->email, 'email')
-             ->type('passw0RD', 'password')
-             ->press('submit')
-             ->seePageIs('/Welcome');
+             ->type($user->pseudo, 'pseudo')
+             ->type('passw0RD', 'mdp')
+            # ->press('submit')
+            # ->seePageIs('/authentification');
     }
 
     /**
-     * Test Welcome Page
+     * Test Login
      *
      * @return void
      */
-    public function testWelcomePageWithUserLogged()
+    public function testLandingPageWithUserLogged()
     {
-        $user = factory(App\User::class)->create();
+        $user = \App\Models\User::factory(User::class)->create();
 
         $this->actingAs($user)
             ->visit('/')
-            ->see('page d\'accueil');
+            ->click('contactez nous')
+            ->seePageIs('/contact')
+            ->click('Produits')
+            ->seePageIs('/products')
+            ->click('Login')
+            ->seePageIs('/authentification');
     }
+
  }
+                                     
