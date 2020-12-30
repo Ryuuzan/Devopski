@@ -33,9 +33,9 @@ use WithoutMiddleware;
     
         $this->visit('/authentification')
              ->type($user->pseudo, 'pseudo')
-             ->type('passw0RD', 'mdp')
+             ->type('passw0RD', 'mdp');
             # ->press('submit')
-            # ->seePageIs('/authentification');
+            # ->seePageIs('/authentification')
     }
 
     /**
