@@ -9,9 +9,9 @@
             <th>Produit</th>
             <th>Description</th>
         </tr>      
-    @foreach ($produits as $produit)
+        @foreach ($produits as $produit)
         <tr>
-        <td><a href='/products/ficheproduits?id=<?= $produit->id; ?>'><?= $produit->title; ?></a></td><td><?= $produit->description; ?></td>
+        <td><a href='/products/ficheproduits?id=<?= $produit->id_prod; ?>'><?= $produit->prod_nom; ?></a></td><td><?= $produit->prod_description; ?></td>
         </tr>
         @endforeach
     </table>
