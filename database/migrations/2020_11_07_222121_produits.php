@@ -14,10 +14,15 @@ class Produits extends Migration
     public function up()
     {
         Schema::create('Produits', function (Blueprint $table){
-            $table->increments('id');
-            $table->string('title');
-            $table->text('description');
-            $table->timestamps();
+            $table->increments('id_prod');
+            $table->string('prod_nom');
+            $table->text('prod_description');
+            $table->float('prod_prix', 8, 2);
+            $table->integer('prod_stock');
+            $table->text('prod_marque');
+            $table->text('prod_image');
+            $table->foreignId('id_cat');
+
         });
     }
 
