@@ -40,42 +40,6 @@ class AuthTest extends TestCase
 
 use RefreshDatabase;                                
 use DatabaseMigrations;                             
-use WithoutMiddleware;     
-
-
-                        
-    /**                                                
-     * Test Login                                      
-     *                                                 
-     * @return void                                    
-     */
-    public function testLogin()
-    {
-
-        $user = \App\Models\User::factory(User::class)->create(['password' => Hash::make('passw0RD'),]);
-    
-        $this->visit('/authentification')
-             ->type($user->pseudo, 'pseudo')
-             ->type('passw0RD', 'mdp');
-            # ->press('submit')
-            # ->seePageIs('/authentification');
-    }
-
-    /**
-     * Test Login
-     *
-     * @return void
-     */
-    public function testLandingPageWithUserLogged()
-    {
-        $user = \App\Models\User::factory(User::class)->create();
-
-        $this->actingAs($user)
-            ->visit('/')
-            ->click('Login')
-            ->seePageIs('/authentification');
-    }
-
-
+use WithoutMiddleware;
 
 }
